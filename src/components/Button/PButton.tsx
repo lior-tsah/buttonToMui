@@ -2,11 +2,22 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 
 const StyledButton = styled(Button)(({ theme }) => ({
-  
+
   '&:disabled': {
     cursor: 'auto',
   },
-
+  // [theme.breakpoints.down('md')]: {
+  //   padding: '0 10px',
+  //   gap: '7px',
+  //   minHeight: '25px',
+  //   fontSize: '12px',
+  // },
+  // [theme.breakpoints.up('lg')]: {
+  //   padding: '0 21px',
+  //   gap: '10px',
+  //   minHeight: '34px',
+  //   fontSize: '16px',
+  // },
   '&.transparent': {
     backgroundColor: 'transparent',
     fontWeight: 700,
