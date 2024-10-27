@@ -11,12 +11,14 @@ function App() {
         buttonRef={bref}
         color={"primary"}
         type={ButtonType.Reset}
-        variant="contained"
-        className="danger"
+        variant="outlined"
+        // className="danger"
+        size="medium"
         to="http://localhost:5173/"
       >
         test
       </PButtonView>
+     
     </div>
   );
 }

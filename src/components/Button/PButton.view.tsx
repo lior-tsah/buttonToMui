@@ -24,6 +24,7 @@ type Props = {
   buttonRef?: React.RefObject<HTMLButtonElement>;
   dataTestid?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  size?: "small" | "medium" | "large";
 };
 
 const PButtonView = (props: React.PropsWithChildren<Props>): JSX.Element => {
@@ -38,6 +39,7 @@ const PButtonView = (props: React.PropsWithChildren<Props>): JSX.Element => {
       onClick={props.onClick}
       color={props.color}
       href={props.to && !props.disabled ? props.to : undefined}
+      size={props.size}
     >
       {props.children}
     </StyledButton>
