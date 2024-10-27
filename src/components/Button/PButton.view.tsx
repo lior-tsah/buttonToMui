@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { ButtonProps, ButtonPropsColorOverrides } from "@mui/material/Button";
+import { ButtonPropsColorOverrides } from "@mui/material/Button";
 import { OverridableStringUnion } from "@mui/types";
 
 import { ButtonType } from "./PButton.model";
@@ -28,7 +27,6 @@ type Props = {
 };
 
 const PButtonView = (props: React.PropsWithChildren<Props>): JSX.Element => {
-
   return (
     <StyledButton
       ref={props.buttonRef}
@@ -39,13 +37,11 @@ const PButtonView = (props: React.PropsWithChildren<Props>): JSX.Element => {
       data-testid={props.dataTestid}
       onClick={props.onClick}
       color={props.color}
-      href={props.to && !props.disabled ? props.to : undefined} 
-      
+      href={props.to && !props.disabled ? props.to : undefined}
     >
       {props.children}
     </StyledButton>
   );
-
 };
 
 PButtonView.displayName = "PButtonView";
