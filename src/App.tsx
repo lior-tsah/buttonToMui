@@ -1,13 +1,13 @@
 import { useRef } from "react";
 import "./App.css";
 import { ButtonType } from "./components/Button/PButton.model";
-import PButtonView from "./components/Button/PButton.view";
+import PButton from "./components/Button/PButton";
 
 function App() {
   const bref = useRef<HTMLButtonElement>(null);
   return (
     <div>
-      <PButtonView
+      <PButton
         buttonRef={bref}
         color={"primary"}
         type={ButtonType.Reset}
@@ -17,7 +17,7 @@ function App() {
         to="http://localhost:5173/"
       >
         test
-      </PButtonView>
+      </PButton>
      
     </div>
   );

@@ -1,52 +1,103 @@
-import React from "react";
-import { ButtonPropsColorOverrides } from "@mui/material/Button";
-import { OverridableStringUnion } from "@mui/types";
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 
-import { ButtonType } from "./PButton.model";
-import StyledButton from "./PButton";
+const StyledButton = styled(Button)(({ theme }) => ({
 
-type Props = {
-  className?: string;
-  color: OverridableStringUnion<
-    | "inherit"
-    | "primary"
-    | "secondary"
-    | "success"
-    | "error"
-    | "info"
-    | "warning",
-    ButtonPropsColorOverrides
-  >;
-  disabled?: boolean;
-  type: ButtonType;
-  variant?: "contained" | "outlined" | "text";
-  to?: string;
-  buttonRef?: React.RefObject<HTMLButtonElement>;
-  dataTestid?: string;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  size?: "small" | "medium" | "large";
-};
-
-const PButtonView = (props: React.PropsWithChildren<Props>): JSX.Element => {
-  return (
-    <StyledButton
-      ref={props.buttonRef}
-      className={props.className}
-      type={props.type}
-      variant={props.variant}
-      disabled={props.disabled}
-      data-testid={props.dataTestid}
-      onClick={props.onClick}
-      color={props.color}
-      href={props.to && !props.disabled ? props.to : undefined}
-      size={props.size}
-    >
-      {props.children}
-    </StyledButton>
-  );
-};
-
-PButtonView.displayName = "PButtonView";
-// PButtonView.defaultProps = {};
-
-export default PButtonView;
+  '&:disabled': {
+    cursor: 'auto',
+  },
+  // [theme.breakpoints.down('md')]: {
+  //   padding: '0 10px',
+  //   gap: '7px',
+  //   minHeight: '25px',
+  //   fontSize: '12px',
+  // },
+  // [theme.breakpoints.up('lg')]: {
+  //   padding: '0 21px',
+  //   gap: '10px',
+  //   minHeight: '34px',
+  //   fontSize: '16px',
+  // },
+  '&.transparent': {
+    backgroundColor: 'transparent',
+    fontWeight: 700,
+    '&:hover': {
+      color: theme.palette.primary.main,
+    },
+    '&::placeholder': {
+      color: theme.palette.primary.main,
+    },
+    '&:disabled': {
+      backgroundColor: 'transparent',
+      color: theme.palette.action.disabled,
+      '&:hover': {
+        backgroundColor: 'transparent',
+        color: theme.palette.action.disabled,
+      },
+    },
+  },
+  '&.tertiary': {
+    backgroundColor: 'white',
+    border: '2px solid black',
+    fontWeight: 700,
+    '&:hover': {
+      border: `2px solid ${theme.palette.primary.main}`,
+      color: theme.palette.primary.main,
+    },
+    '&:disabled': {
+      backgroundColor: 'white',
+      border: `2px solid ${theme.palette.action.disabled}`,
+      '&:hover': {
+        backgroundColor: 'white',
+        border: `2px solid ${theme.palette.action.disabled}`,
+        color: theme.palette.action.disabled,
+      },
+    },
+  },
+  '&.danger': {
+    backgroundColor: theme.palette.error.main,
+    color: 'white',
+    fontWeight: 700,
+    '&:disabled': {
+      opacity: 0.4,
+    },
+    '&:hover': {
+      backgroundColor: theme.palette.error.dark,
+    },
+  },
+  '&.primary': {
+    backgroundColor: 'black',
+    color: 'white',
+    '&:hover': {
+      backgroundColor: theme.palette.primary.main,
+    },
+    '&:disabled': {
+      backgroundColor: theme.palette.action.disabledBackground,
+      '&:hover': {
+        backgroundColor: theme.palette.action.disabledBackground,
+      },
+    },
+  },
+  '&.secondary': {
+    backgroundColor: 'transparent',
+    border: `2px solid ${theme.palette.common.black}`,
+    fontWeight: 700,
+    '&:hover': {
+      border: `2px solid ${theme.palette.primary.main}`,
+      color: theme.palette.primary.main,
+    },
+    '&:disabled': {
+      backgroundColor: 'transparent',
+      border: `2px solid ${theme.palette.action.disabled}`,
+      '&:hover': {
+        backgroundColor: 'transparent',
+        border: `2px solid ${theme.palette.action.disabled}`,
+        color: theme.palette.action.disabled,
+      },
+    },
+  },
+  '&.link': {
+    textDecoration: 'none !important',
+  },
+}));
+export default StyledButton;

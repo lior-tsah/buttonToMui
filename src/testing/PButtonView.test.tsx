@@ -2,13 +2,13 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import PButtonView from '../components/Button/PButton.view';
 import { ButtonType } from '../components/Button/PButton.model';
+import PButton from '../components/Button/PButton';
 
 describe('PButtonView Component', () => {
   test('renders with primary color and outlined variant', () => {
     render(
-      <PButtonView
+      <PButton
         buttonRef={null}
         color="primary"
         type={ButtonType.Reset}
@@ -17,7 +17,7 @@ describe('PButtonView Component', () => {
         to="http://localhost:5173/"
       >
         test
-      </PButtonView>
+      </PButton>
     );
     const button = screen.getByText('test');
     expect(button).toBeInTheDocument();
@@ -27,7 +27,7 @@ describe('PButtonView Component', () => {
 
   test('renders as disabled', () => {
     render(
-      <PButtonView
+      <PButton
         buttonRef={null}
         color="primary"
         type={ButtonType.Reset}
@@ -37,7 +37,7 @@ describe('PButtonView Component', () => {
         disabled
       >
         test
-      </PButtonView>
+      </PButton>
     );
     const button = screen.getByText('test');
     expect(button).toBeDisabled();
@@ -45,7 +45,7 @@ describe('PButtonView Component', () => {
 
   test('renders with different variants', () => {
     render(
-      <PButtonView
+      <PButton
         buttonRef={null}
         color="secondary"
         type={ButtonType.Button}
@@ -54,7 +54,7 @@ describe('PButtonView Component', () => {
         to="http://localhost:5173/"
       >
         test
-      </PButtonView>
+      </PButton>
     );
     const button = screen.getByText('test');
     expect(button).toHaveClass('secondary');
@@ -63,7 +63,7 @@ describe('PButtonView Component', () => {
 
   test('handles hover state', () => {
     render(
-      <PButtonView
+      <PButton
         buttonRef={null}
         color="primary"
         type={ButtonType.Button}
@@ -72,7 +72,7 @@ describe('PButtonView Component', () => {
         to="http://localhost:5173/"
       >
         test
-      </PButtonView>
+      </PButton>
     );
     const button = screen.getByText('test');
     fireEvent.mouseOver(button);
@@ -83,7 +83,7 @@ describe('PButtonView Component', () => {
 
   test('handles focus state', () => {
     render(
-      <PButtonView
+      <PButton
         buttonRef={null}
         color="primary"
         type={ButtonType.Button}
@@ -92,7 +92,7 @@ describe('PButtonView Component', () => {
         to="http://localhost:5173/"
       >
         test
-      </PButtonView>
+      </PButton>
     );
     const button = screen.getByText('test');
     fireEvent.focus(button);
