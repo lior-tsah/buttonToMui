@@ -2,8 +2,8 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { ButtonType } from '../components/Button/PButton.model';
-import PButton from '../components/Button/PButton';
+import { ButtonType } from '../src/components/Button/PButton.model';
+import PButton from '../src/components/Button/PButton';
 
 describe('PButtonView Component', () => {
   test('renders with primary color and outlined variant', () => {

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ButtonPropsColorOverrides } from "@mui/material/Button";
 import { OverridableStringUnion } from "@mui/types";
@@ -22,7 +21,7 @@ type Props = {
   type: ButtonType;
   variant?: "contained" | "outlined" | "text";
   to?: string;
-  buttonRef?: React.RefObject<HTMLButtonElement>;
+  buttonRef?: React.RefObject<HTMLButtonElement> | null;
   dataTestid?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   size?: "small" | "medium" | "large";
